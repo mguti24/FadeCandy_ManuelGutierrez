@@ -27,9 +27,10 @@ def bluesaber():                                                                
     led_colour[124] = (0,100,255); led_colour[125] = (0,100,255)
     led_colour[183] = (0,100,255); led_colour[184] = (0,100,255)
     led_colour[242] = (0,100,255); led_colour[243] = (0,100,255)
+    
     led_colour[301] = (128,128,128); led_colour[302] = (128,128,128)
 
-def greensaber(delay):                                                                                     #Choose a Lightasber options are shown
+def greensaber():                                                                                     #Choose a Lightasber options are shown
     global led_colour
     led_colour[16] = (0,255,50);   led_colour[17] = (0,255,50)
     led_colour[75] =(0,255,50);   led_colour[76] = (0,255,50)
@@ -75,18 +76,17 @@ def whitesaber():                                                               
     led_colour[351] = (128,128,128); led_colour[352] = (128,128,128)
 
 
-
-    
-
 def transition(delay):                                                                               #Transitions from one state to another.
     global led_colour                                                                                #Create/use global variable "led_colour"
     for p in range (0, 60):
-        led_colour[p] = (255,255,0)
-        led_colour[p+60] = (128,128,128)
-        led_colour[p+120] = (255,255,0)
-        led_colour[p+180] = (128,128,128)
-        led_colour[p+240] = (255,255,0)
-        led_colour[p+300] = (128,128,128)
+        led_colour[p] = (0,0,0)
+        led_colour[p+60] = (0,0,0)
+        led_colour[p+120] = (0,0,0)
+        led_colour[p+180] = (0,0,0)
+        led_colour[p+240] = (0,0,0)
+        led_colour[p+300] = (0,0,0)
+        time.sleep(.1)
+        
         
      
 
@@ -107,24 +107,46 @@ led = 0
 
 while led<360:
     bluesaber()
-    greensaber(5)
+    greensaber()
     purplesaber()
     yellowsaber()
     orangesaber()
     whitesaber()
-    time.sleep(.1)
     update() 
+##    if available_colours[] == choice:
     break
 
+
     
 
-choice = input("Jedi welcome to your lightsaber fight. What is your lightsaber colour?")
+choice = input("Jedi welcome to your lightsaber fight. What is your lightsaber colour? ")
 print("You chose:", choice,"!")
 
-available_colours = [blue,green,purple,yellow,orange,white] 
+available_colours = ["blue","green","purple","yellow","orange","white"] 
 
-
-    
+while True:
+    if choice == available_colours[0]:
+        transition(2)
+        bluesaber()
+    elif choice == available_colours[1]:
+        transition(3)
+        greensaber()
+    elif choice == available_colours[2]:
+        transition(3)
+        purplesaber()
+    elif choice == available_colours[3]:
+        transition(3)
+        yellowsaber()
+    elif choice == available_colours[4]:
+        transition(3)
+        orangesaber()
+    elif choice == available_colours[5]:
+        transition(3)
+        whitesaber()
+        break
+    else:
+        choice = input("Not a valid choice. Please select an available colour with lower-case spelling: ")
+    update()
 
     
 
