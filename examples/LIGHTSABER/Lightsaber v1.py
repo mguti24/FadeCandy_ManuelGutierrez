@@ -133,7 +133,7 @@ def transition():                                                               
         for rows in range(6):
             led_colour[led+rows*60] = (0,0,0)
         update()
-        time.sleep(.03)
+        time.sleep(.01)
         led = led+1
 
 def vs():
@@ -203,7 +203,7 @@ while True:
         if choice<1 or choice>6:                                                                    #value out of range
             choice = input("Please select an existing lightsaber choice: ")
             continue                                                                                #go back to .isdigit()        
-        elif choice == available_colours[0]:                                                        #Here all ligh
+        elif choice == available_colours[0]: 
             transition()
             bluesaber()
         elif choice == available_colours[1]:
@@ -233,3 +233,32 @@ while True:
 
                                                  
 
+
+
+'''if choice == available_colours[0]: 
+    transition(2)
+    bluesaber()
+elif choice == available_colours[1]:
+    transition(3)
+    greensaber()
+elif choice == available_colours[2]:
+    transition(3)
+    purplesaber()
+elif choice == available_colours[3]:
+    transition(3)
+    yellowsaber()
+elif choice == available_colours[4]:
+    transition(3)
+    orangesaber()
+elif choice == available_colours[5]:
+    transition(3)
+    whitesaber()'''
+
+    
+    
+
+##while led<60:
+##        leds = (0,0,255)
+##        client.put_pixels(leds)
+##        time.sleep(.1)    
+##    break
