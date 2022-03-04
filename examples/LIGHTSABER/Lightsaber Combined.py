@@ -75,6 +75,49 @@ def whitesaber():                                                               
     led_colour[292] = (255,255,255); led_colour[293] = (255,255,255)
     led_colour[351] = (128,128,128); led_colour[352] = (128,128,128)
 
+def enemysaber():                                                                                    #Choose a Lightasber options are shown
+    led_colour[354] = (128,128,128);  led_colour[356] = (128,128,128)
+    #Igniting blade
+    update()
+    time.sleep(0.5)
+    led_colour[294] = (255,0,0); led_colour[296] = (255,0,0);
+    update()
+    time.sleep(0.03)
+    led_colour[234] = (255,0,0); led_colour[236] = (255,0,0);
+    update()
+    time.sleep(0.03)
+    led_colour[174] = (255,0,0); led_colour[176] = (255,0,0);
+    update()
+    time.sleep(0.03)
+    led_colour[114] = (255,0,0); led_colour[116] = (255,0,0);
+    update()
+    time.sleep(0.03)
+    led_colour[54] = (255,0,0); led_colour[56] = (255,0,0);
+    update()
+    time.sleep(0.03)
+    
+
+def usersaber(choice):
+    led_colour[304] = (128,128,128);  led_colour[306] = (128,128,128)
+    #Igniting blade
+    update()
+    time.sleep(0.5)
+    led_colour[244] = colour_choice[choice-1]; led_colour[246] = colour_choice[choice-1];
+    update()
+    time.sleep(0.03)
+    led_colour[184] = colour_choice[choice-1]; led_colour[186] = colour_choice[choice-1];
+    update()
+    time.sleep(0.03)
+    led_colour[124] = colour_choice[choice-1]; led_colour[126] = colour_choice[choice-1];
+    update()
+    time.sleep(0.03)
+    led_colour[64] = colour_choice[choice-1]; led_colour[66] = colour_choice[choice-1];
+    update()
+    time.sleep(0.03)
+    led_colour[4] = colour_choice[choice-1]; led_colour[6] = colour_choice[choice-1];
+    update()
+    time.sleep(0.03)
+
 
 def transition(delay):                                                                               #Transitions from one state to another.
     global led_colour                                                                                #Create/use global variable "led_colour"
@@ -86,6 +129,7 @@ def transition(delay):                                                          
         led_colour[p+240] = (0,0,0)
         led_colour[p+300] = (0,0,0)
         time.sleep(.1)
+       
         
         
      
@@ -119,35 +163,74 @@ while led<360:
 
     
 
-choice = input("Jedi welcome to your lightsaber fight. What is your lightsaber colour? ")
+choice = input('''Jedi welcome to your lightsaber fight. What is your lightsaber colour?
+\t 1.Blue 
+\t 2.Green
+\t 3.Purple
+\t 4.Yellow
+\t 5.Orange
+\t 6.White
+Type the number of your selected choice and press Enter: ''')
+
 print("You chose:", choice,"!")
 
-available_colours = ["blue","green","purple","yellow","orange","white"] 
+available_colours = [1,2,3,4,5,6]
+
+
 
 while True:
-    if choice == available_colours[0]:
-        transition(2)
-        bluesaber()
-    elif choice == available_colours[1]:
-        transition(3)
-        greensaber()
-    elif choice == available_colours[2]:
-        transition(3)
-        purplesaber()
-    elif choice == available_colours[3]:
-        transition(3)
-        yellowsaber()
-    elif choice == available_colours[4]:
-        transition(3)
-        orangesaber()
-    elif choice == available_colours[5]:
-        transition(3)
-        whitesaber()
-        break
+    if choice.isdigit() == True:              
+        choice = int(choice)                                                                        #If choice is a digit make it an integer instead of string
+        if choice<1 or choice>6:                                                                    #value out of range
+            choice = input("Please select an existing lightsaber choice: ")
+            continue                                                                                #go back to .isdigit()        
+        elif choice == available_colours[0]: 
+            transition(3)
+            bluesaber()
+        elif choice == available_colours[1]:
+            transition(3)
+            greensaber()
+        elif choice == available_colours[2]:
+            transition(3)
+            purplesaber()
+        elif choice == available_colours[3]: 
+            transition(3)
+            yellowsaber()
+        elif choice == available_colours[4]:
+            transition(3)
+            orangesaber()
+        elif choice == available_colours[5]:
+            transition(3)
+            whitesaber()
+        update()
     else:
-        choice = input("Not a valid choice. Please select an available colour with lower-case spelling: ")
+        break                                                                                   #Once correct value i.e. integer 1-6. exit loop
+
+for led in range(len(led_colour)):
+    led_colour[led] = (255,0,0)
+    time.sleep(.1)
     update()
 
+'''if choice == available_colours[0]: 
+    transition(2)
+    bluesaber()
+elif choice == available_colours[1]:
+    transition(3)
+    greensaber()
+elif choice == available_colours[2]:
+    transition(3)
+    purplesaber()
+elif choice == available_colours[3]:
+    transition(3)
+    yellowsaber()
+elif choice == available_colours[4]:
+    transition(3)
+    orangesaber()
+elif choice == available_colours[5]:
+    transition(3)
+    whitesaber()'''
+
+    
     
 
 ##while led<60:
