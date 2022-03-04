@@ -19,6 +19,7 @@ def update():                                                                   
     client.put_pixels(led_colour)
     client.put_pixels(led_colour)
 
+#animation of enemy igniting lightsaber
 def enemysaber():                                                                                    #Choose a Lightasber options are shown
     led_colour[354] = (128,128,128);  led_colour[356] = (128,128,128)
     #Igniting blade
@@ -40,7 +41,7 @@ def enemysaber():                                                               
     update()
     time.sleep(0.03)
     
-
+#animation ignite your lightsaber
 def usersaber(choice):
     led_colour[304] = (128,128,128);  led_colour[306] = (128,128,128)
     #Igniting blade
@@ -61,8 +62,34 @@ def usersaber(choice):
     led_colour[4] = colour_choice[choice-1]; led_colour[6] = colour_choice[choice-1];
     update()
     time.sleep(0.03)
-    
+ 
+#animation of VS blinking
+def vs(vs_leds):
+    led_colour[3]= (255,255,0)
 
+#animation of your lightsaber moving towards enemy
+def dueluser():
+    led_colour[304] = (128,128,128);  led_colour[306] = (128,128,128)
+    #Igniting blade
+    update()
+    time.sleep(0.5)
+    led_colour[244] = colour_choice[choice-1]; led_colour[246] = colour_choice[choice-1];
+    update()
+    time.sleep(0.03)
+    led_colour[184] = colour_choice[choice-1]; led_colour[186] = colour_choice[choice-1];
+    update()
+    time.sleep(0.03)
+    led_colour[124] = colour_choice[choice-1]; led_colour[126] = colour_choice[choice-1];
+    update()
+    time.sleep(0.03)
+    led_colour[64] = colour_choice[choice-1]; led_colour[66] = colour_choice[choice-1];
+    update()
+    time.sleep(0.03)
+    led_colour[4] = colour_choice[choice-1]; led_colour[6] = colour_choice[choice-1];
+    update()
+    time.sleep(0.03)
+ 
+    
     
     
     

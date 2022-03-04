@@ -17,8 +17,7 @@ client.put_pixels(led_colour)
 #FUNCTIONS
 def update():                                                                                        #Automatically updates what the code is doing. No need to repeat it all the time
     client.put_pixels(led_colour)
-    client.put_pixels(led_colour)
-
+   
 
 def bluesaber():                                                                                     #Choose a Lightasber options are shown
     global led_colour
@@ -97,7 +96,7 @@ def enemysaber():                                                               
     time.sleep(0.03)
     
 
-def usersaber(choice):
+def usersaber():
     led_colour[304] = (128,128,128);  led_colour[306] = (128,128,128)
     #Igniting blade
     update()
@@ -119,19 +118,24 @@ def usersaber(choice):
     time.sleep(0.03)
 
 
-def transition(delay):                                                                               #Transitions from one state to another.
-    global led_colour                                                                                #Create/use global variable "led_colour"
-    for p in range (0, 60):
-        led_colour[p] = (0,0,0)
-        led_colour[p+60] = (0,0,0)
-        led_colour[p+120] = (0,0,0)
-        led_colour[p+180] = (0,0,0)
-        led_colour[p+240] = (0,0,0)
-        led_colour[p+300] = (0,0,0)
+def scroll():                                                                               #Transitions from one state to another.
+    led = 0
+    while led<60:                                                                                  #scroll all rows at the same time
+        for rows in range(6):
+            led_colour[led+rows*60] = colour_choice[choice-1]
+        update()
         time.sleep(.1)
-       
-        
-        
+        led = led+1
+
+def transition():                                                                              #Transitions from one state to another.
+    led = 0
+    while led<60:                                                                                  #scroll all rows at the same time
+        for rows in range(6):
+            led_colour[led+rows*60] = (0,0,0)
+        update()
+        time.sleep(.1)
+        led = led+1
+
      
 
     
@@ -175,6 +179,7 @@ Type the number of your selected choice and press Enter: ''')
 print("You chose:", choice,"!")
 
 available_colours = [1,2,3,4,5,6]
+colour_choice = [(0,100,255),(0,255,50),(200,0,255),(255,255,0),(255,127,0),(255,255,255)]
 
 
 
@@ -185,31 +190,37 @@ while True:
             choice = input("Please select an existing lightsaber choice: ")
             continue                                                                                #go back to .isdigit()        
         elif choice == available_colours[0]: 
-            transition(3)
+            transition()
             bluesaber()
         elif choice == available_colours[1]:
-            transition(3)
+            transition()
             greensaber()
         elif choice == available_colours[2]:
-            transition(3)
+            transition()
             purplesaber()
         elif choice == available_colours[3]: 
-            transition(3)
+            transition()
             yellowsaber()
         elif choice == available_colours[4]:
-            transition(3)
             orangesaber()
         elif choice == available_colours[5]:
-            transition(3)
+            transtition()
             whitesaber()
-        update()
-    else:
-        break                                                                                   #Once correct value i.e. integer 1-6. exit loop
+        update() 
+        time.sleep(2)
+        scroll()
+        time.sleep(3)
+        transition()
+        time.sleep(3)
+        usersaber()
+        enemysaber()
+        
+        
+    break
 
-for led in range(len(led_colour)):
-    led_colour[led] = (255,0,0)
-    time.sleep(.1)
-    update()
+                                                                    #Once correct value i.e. integer 1-6. exit loop
+
+
 
 '''if choice == available_colours[0]: 
     transition(2)
