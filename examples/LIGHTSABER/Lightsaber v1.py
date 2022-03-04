@@ -190,14 +190,14 @@ while led<360:                               #shows all lightsaber choices
 
     
 
-choice = input('''Jedi welcome to your lightsaber fight. What is your lightsaber colour?
+choice = input('''Jedi welcome to your lightsaber fight. What is your lightsaber colour?              
 \t 1.Blue 
 \t 2.Green
 \t 3.Purple
 \t 4.Yellow
 \t 5.Orange
 \t 6.White
-Type the number of your selected choice and press Enter: ''')
+Type the number of your selected choice and press Enter: ''')                           #Displays list of options in UI to choose. these asign numbers to lightsabercolour
 
 print("You chose:", choice,"!")
 
