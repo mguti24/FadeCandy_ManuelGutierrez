@@ -150,9 +150,9 @@ def vs():
 def winner():
     prob=random.randrange(100)
     if prob<20:
-        print("Congratulations, you won your duel")
+        print("Congratulations, you won your duel. Thank you for playing")
     else:
-        print("Sorry, you lost your duel")
+        print("Sorry, you lost your duel. Thank you for playing")
        
 ##blue (0,100,255)
 ##green (0,255,50)
