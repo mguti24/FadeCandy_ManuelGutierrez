@@ -1,5 +1,6 @@
 README file for Python LED Assesment
 
+Project description:
 The project is found inside the LIGHTSABER folder. Lightsaber v1 is the python
 file where the code is found
 
@@ -20,6 +21,11 @@ An animation of a "VS" sign being written will be displayed. Then according to t
 outcome of the random result the whole OPC screen will be crossed by diagonals in an
 animation of your colour (if you win) followed by a message on UI or red diagonals 
 with a different message (if you lose).
+
+INSTRUCTIONS:
+Open the examples folder where all necessary libraries are found, download opc.py, and
+make sure time, colorsys, and random python libraries are installed in your machines, 
+then, open the folder "LIGHTSABER" and then open "Lightsaber_v1.py" and run it.
 
 CHANGELOG:
 
