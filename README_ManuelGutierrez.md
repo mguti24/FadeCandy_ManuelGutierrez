@@ -5,7 +5,7 @@ file where the code is found
 
 My project consist of a small Star Wars themed "game". Where you act as a Jedi
 choosing a lightsaber colour out of the 6 most common ones (blue,green,purple,
-yellow, orange, white. The lightsaber the user choses will be the red weapon that
+yellow, orange, white). The lightsaber the user choses will be the weapon that
 will fight the duel against the red (Sith) lightsaber. The winner will be randomly
 chosen. So, the player only choses the colour but the choice does't affect the 
 outcome. 
